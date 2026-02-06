@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   Card as ShadCNCard,
   CardContent,
@@ -5,7 +6,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function Card({ title, children }) {
+export default function Card({
+  title,
+  children,
+}: Readonly<{ title: string; children: React.ReactNode }>) {
   return (
     <ShadCNCard>
       {title ? (
