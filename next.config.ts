@@ -2,8 +2,9 @@ import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  // Add 'as const' here to satisfy the type checker
+  // Optionally, add any other Next.js config below
   output: "export" as const,
   images: {
     unoptimized: true,
@@ -11,7 +12,8 @@ const nextConfig = {
 };
 
 const withMDX = createMDX({
-  // Use the standard options for the MDX plugin
+  extension: /\.(md|mdx)$/,
 });
 
+// Merge MDX config with Next.js config
 export default withMDX(nextConfig);
