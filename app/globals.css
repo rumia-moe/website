@@ -2,7 +2,7 @@
 @plugin '@tailwindcss/typography';
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/*@custom-variant dark (&:is(.dark *));*/
 
 @theme inline {
     --color-background: var(--background);
@@ -36,8 +36,8 @@
     --color-primary: var(--primary);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
+    /*--color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);*/
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
@@ -54,6 +54,9 @@
     --color-text-dimmed: #a69cac;
 
     --view-width: 1200px;
+
+    --color-card-foreground: var(--color-text-light);
+    --color-card: var(--color-background-medium);
 }
 
 :root {
@@ -91,7 +94,7 @@
     --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
+/*.dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -123,7 +126,7 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
-}
+}*/
 
 @layer base {
     * {
@@ -134,7 +137,7 @@
     }
 }
 
-@utility prose-colors {
+@utility prose-rumia {
     --tw-prose-body: var(--color-text-dimmed);
     --tw-prose-headings: var(--color-text-light);
     /*--tw-prose-lead: var(--color-pink-700);*/
@@ -167,4 +170,15 @@
     /*--tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);*/
     /*--tw-prose-invert-th-borders: var(--color-pink-600);*/
     /*--tw-prose-invert-td-borders: var(--color-pink-700);*/
+
+    :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    :where(h1, h2, h3):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }

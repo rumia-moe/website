@@ -8,29 +8,42 @@
 //   CollapsibleTrigger,
 // } from "@/components/ui/collapsible";
 // import { ChevronsUpDown } from "lucide-react";
+import { Pixelify_Sans } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const pixelifySans = Pixelify_Sans({
+  variable: "--font-pixelify-sans",
+  subsets: ["latin"],
+});
+
+const pages = [
+  { name: "home", href: "/" },
+  { name: "blog", href: "/blog" },
+  { name: "projects", href: "/projects" },
+  { name: "gallery", href: "/gallery" },
+  { name: "contact", href: "/contact" },
+];
 
 export default function Header() {
   const pathname = usePathname();
 
   // const [isNavOpen, setIsNavOpen] = React.useState(false);
 
-  const pages = [
-    { name: "home", href: "/" },
-    { name: "blog", href: "/blog" },
-    { name: "projects", href: "/projects" },
-    { name: "gallery", href: "/gallery" },
-    { name: "contact", href: "/contact" },
-  ];
-
   return (
     // <Collapsible open={isNavOpen} onOpenChange={setIsNavOpen} asChild>
     <header className="w-screen flex flex-col bg-(--color-background-light) shadow-xl">
-      <div className="w-full max-w-(--view-width) mx-auto px-12 py-4 flex">
+      <div className="w-full max-w-(--view-width) mx-auto px-12 py-10 flex">
         <div className="flex flex-col">
-          <h3>rumia.moe</h3>
-          {/*<small>v1.0.0</small>*/}
+          <Link href="/" className="no-underline">
+            <h2 className={pixelifySans.className}>rumia.moe</h2>
+          </Link>
+          {/*<Link
+            href="https://github.com/rumia-moe/website"
+            className="not-prose"
+          >*/}
+          <pre className="not-prose">v1.0.0</pre>
+          {/*</Link>*/}
         </div>
         {/*<CollapsibleTrigger asChild>*/}
         {/*<Button variant="ghost" size="icon" className="size-8">*/}
@@ -47,7 +60,7 @@ export default function Header() {
               return <strong key={i}>{page.name}</strong>;
 
             return (
-              <Link href={page.href} key={i}>
+              <Link className="not-prose" href={page.href} key={i}>
                 {page.name}
               </Link>
             );
