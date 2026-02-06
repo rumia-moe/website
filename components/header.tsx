@@ -42,7 +42,9 @@ export default function Header() {
             href="https://github.com/rumia-moe/website"
             className="not-prose"
           >*/}
-          <pre className="not-prose">v1.0.0</pre>
+          <pre className="not-prose">
+            {process.env.NEXT_PUBLIC_COMMIT_HASH || "dev"}
+          </pre>
           {/*</Link>*/}
         </div>
         {/*<CollapsibleTrigger asChild>*/}
@@ -56,7 +58,10 @@ export default function Header() {
       <nav className="bg-(--color-background-medium)">
         <div className="w-full max-w-(--view-width) mx-auto px-12 py-2 flex justify-center gap-8">
           {pages.map((page, i) => {
-            if (pathname === page.href)
+            if (
+              pathname === page.href ||
+              (page.href !== "/" && pathname.startsWith(page.href))
+            )
               return <strong key={i}>{page.name}</strong>;
 
             return (

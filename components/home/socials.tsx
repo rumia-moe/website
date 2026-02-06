@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import {
   SiDiscord,
   SiX,
+  SiInstagram,
   SiBluesky,
   SiGithub,
 } from "@icons-pack/react-simple-icons";
@@ -25,6 +26,11 @@ const socials = [
     name: "X",
     icon: SiX,
     href: "https://x.com/xivgreen",
+  },
+  {
+    name: "Instagram",
+    icon: SiInstagram,
+    href: "https://instagram.com/jakob.deguzman",
   },
   {
     name: "GitHub",
