@@ -9,7 +9,7 @@ import {
 export default function Card({
   title,
   children,
-}: Readonly<{ title: string; children: React.ReactNode }>) {
+}: Readonly<{ title?: string; children: React.ReactNode }>) {
   return (
     <ShadCNCard>
       {title ? (
