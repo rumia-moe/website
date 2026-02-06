@@ -34,18 +34,22 @@ export default function Header() {
     // <Collapsible open={isNavOpen} onOpenChange={setIsNavOpen} asChild>
     <header className="w-screen flex flex-col bg-(--color-background-light) shadow-xl">
       <div className="w-full max-w-(--view-width) mx-auto px-12 py-10 flex">
-        <div className="flex flex-col">
-          <Link href="/" className="no-underline">
+        <div className="flex flex-col items-start">
+          <Link href="/" className="no-underline inline-block">
             <h2 className={pixelifySans.className}>rumia.moe</h2>
           </Link>
-          {/*<Link
-            href="https://github.com/rumia-moe/website"
-            className="not-prose"
-          >*/}
-          <pre className="not-prose">
-            {process.env.NEXT_PUBLIC_COMMIT_HASH || "dev"}
-          </pre>
-          {/*</Link>*/}
+          <Link
+            href={
+              "https://github.com/rumia-moe/website/commit/" +
+              process.env.NEXT_PUBLIC_COMMIT_HASH
+            }
+            target="_blank"
+            className="not-prose inline-block"
+          >
+            <pre className="not-prose grow-0">
+              #{process.env.NEXT_PUBLIC_COMMIT_HASH}
+            </pre>
+          </Link>
         </div>
         {/*<CollapsibleTrigger asChild>*/}
         {/*<Button variant="ghost" size="icon" className="size-8">*/}
