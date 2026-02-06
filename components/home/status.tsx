@@ -14,7 +14,7 @@ export default function Status() {
   if (!loading) {
     message = "online";
 
-    if (status.discord_status === "offline") message = "offline";
+    if (status?.discord_status === "offline") message = "offline";
   }
 
   return <Card>{message}</Card>;
