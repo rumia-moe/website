@@ -16,8 +16,8 @@ export default function Clock() {
     };
   });
 
-  const formattedTime = time.toLocaleTimeString("en-NZ", {
-    timeZone: "Pacific/Auckland",
+  const formattedTime = time.toLocaleTimeString("ja-JP", {
+    timeZone: "Asia/Tokyo",
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
@@ -28,7 +28,7 @@ export default function Clock() {
     <Card title="clock">
       <div className="flex flex-col">
         <h1 className="text-center">{formattedTime}</h1>
-        <pre className="not-prose text-center">Dunedin, New Zealand</pre>
+        <pre className="not-prose text-center">Tokyo, Japan</pre>
       </div>
     </Card>
   );
