@@ -3,7 +3,9 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { StatusProvider } from "@/context/lanyard";
 import Header from "@/components/header";
+import PageTransition from "@/components/page-transition";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -27,12 +29,14 @@ export default function RootLayout({
         className={`${poppins.className} antialiased prose prose-rumia bg-(--color-background-dark)`}
       >
         <TooltipProvider>
-          <Header />
-          <div className="w-screen">
-            <div className="w-full max-w-(--view-width) mx-auto p-12">
-              {children}
+          <StatusProvider>
+            <Header />
+            <div className="w-screen">
+              <div className="w-full max-w-(--view-width) mx-auto p-12">
+                <PageTransition>{children}</PageTransition>
+              </div>
             </div>
-          </div>
+          </StatusProvider>
         </TooltipProvider>
       </body>
     </html>
