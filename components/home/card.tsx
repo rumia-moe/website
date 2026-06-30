@@ -4,21 +4,24 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 
 export default function Card({
   title,
+  description,
   children,
-}: Readonly<{ title?: string; children: React.ReactNode }>) {
+}: Readonly<{
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  children: React.ReactNode;
+}>) {
   return (
     <ShadCNCard>
-      {title ? (
-        <CardHeader>
-          <CardTitle>{title}</CardTitle>
-        </CardHeader>
-      ) : (
-        <></>
-      )}
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
 
       <CardContent>{children}</CardContent>
     </ShadCNCard>

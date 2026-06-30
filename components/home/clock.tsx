@@ -5,8 +5,11 @@ import Card from "@/components/home/card";
 
 export default function Clock() {
   const [time, setTime] = React.useState(new Date());
+  const [hasMounted, setHasMounted] = React.useState(false);
 
   React.useEffect(() => {
+    setHasMounted(true);
+
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -14,7 +17,7 @@ export default function Clock() {
     return () => {
       clearInterval(interval);
     };
-  });
+  }, []);
 
   const formattedTime = time.toLocaleTimeString("ja-JP", {
     timeZone: "Asia/Tokyo",
@@ -27,7 +30,9 @@ export default function Clock() {
   return (
     <Card title="clock">
       <div className="flex flex-col">
-        <h1 className="text-center">{formattedTime}</h1>
+        <h1 className="text-center">
+          {hasMounted ? formattedTime : "--:--:--"}
+        </h1>
         <pre className="not-prose text-center">Tokyo, Japan</pre>
       </div>
     </Card>

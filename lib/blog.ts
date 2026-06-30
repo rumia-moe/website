@@ -27,18 +27,17 @@ export function GetPostMetadata(path_: string) {
 
   const fileContents = fs.readFileSync(filePath, "utf8");
 
-  // 2. Metadata Extraction Logic
   const metadataRegex = /^\[(\w+)\]:-\s*"([^"]*)"/gm;
-  let metadata: Record<string, string> = {};
+  const metadata: Map<string, string> = new Map();
   let source = fileContents;
 
   let match;
   while ((match = metadataRegex.exec(fileContents)) !== null) {
-    metadata[match[1]] = match[2];
+    metadata.set(match[1], match[2]);
     source = source.replace(match[0], "");
   }
 
-  return { metadata, source };
+  return { metadata: Object.fromEntries(metadata), source };
 }
 
 export async function GetPost(path_: string) {
