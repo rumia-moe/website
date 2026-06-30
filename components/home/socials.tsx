@@ -12,7 +12,6 @@ import {
   SiDiscord,
   SiX,
   SiInstagram,
-  SiBluesky,
   SiGithub,
 } from "@icons-pack/react-simple-icons";
 
@@ -36,11 +35,6 @@ const socials = [
     name: "GitHub",
     icon: SiGithub,
     href: "https://github.com/rumia-moe",
-  },
-  {
-    name: "Bluesky",
-    icon: SiBluesky,
-    href: "https://bsky.app/profile/rumia.moe",
   },
 ];
 
