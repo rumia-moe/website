@@ -24,7 +24,7 @@ export default function Status() {
   if (!spotify) return null;
 
   const spotifyUrl = `https://open.spotify.com/track/${spotify.track_id}`;
-  const trackMeta = `${spotify.artist} - ${spotify.song}`;
+  const trackMeta = `${spotify.artist.split(/;/g)[0]} - ${spotify.song}`;
 
   const linkedTrackMeta = (
     <a href={spotifyUrl} target="_blank" className="no-underline">
