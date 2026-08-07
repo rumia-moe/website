@@ -20,7 +20,7 @@ export default function Clock() {
   }, []);
 
   const formattedTime = time.toLocaleTimeString("ja-JP", {
-    timeZone: "Asia/Tokyo",
+    timeZone: "Pacific/Auckland",
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
@@ -33,7 +33,7 @@ export default function Clock() {
         <h1 className="text-center">
           {hasMounted ? formattedTime : "--:--:--"}
         </h1>
-        <pre className="not-prose text-center">Tokyo, Japan</pre>
+        <pre className="not-prose text-center">Dunedin, New Zealand</pre>
       </div>
     </Card>
   );
